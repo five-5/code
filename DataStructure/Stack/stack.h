@@ -2,8 +2,11 @@
  * @Author: five-5
  * @Description: stack interface
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-24
+ * @LastEditTime: 2019-03-25
  */
+
+#ifndef STACK_H
+#define STACK_H
 
 template <typename T>
 class Stack {
@@ -14,3 +17,4 @@ class Stack {
     virtual int GetSize() = 0;
     virtual bool IsEmpty() = 0; 
 };
+#endif
