@@ -52,7 +52,7 @@ class MyArray{
     }
 
     // 判断是否为空
-    bool IsEmpty() {
+    bool IsEmpty() const{
         return size_ == 0;
     }
 
