@@ -32,4 +32,4 @@
 *.app
 
 # vscod
-.ipch
+*.ipch
