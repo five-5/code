@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Description: 自定义MyArray数据结构
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-24
+ * @LastEditTime: 2019-03-25
  */
 
 #include <iostream>
@@ -26,12 +26,15 @@ class MyArray{
 
     // assign
     MyArray & operator=(const MyArray &rhs) {
-        size_ = rhs.size_;
-        capacity_ = rhs.capacity_;
-        data_ = new T[capacity_];
-        for (int i = 0; i < size_; ++i) {
+        
+        Resize(rhs.capacity_);
+        
+        for (int i = 0; i < rhs.size_; ++i) {
             data_[i] = rhs.data_[i];
         }
+    
+        size_ = rhs.size_;
+        
         return *this;
     }
     
@@ -204,11 +207,13 @@ class MyArray{
     void Resize(int new_capacity) {
         T *new_data = new T[new_capacity];
         T *temp = data_;
-        for (int i = 0; i < size_; ++i) {
+        int minn = (size_ < new_capacity)? size_ : new_capacity;
+        for (int i = 0; i < minn; ++i) {
             new_data[i] = data_[i];
         }
         data_ = new_data;
         capacity_ = new_capacity;
+        size_ = minn;
         delete []temp;
     }
 
