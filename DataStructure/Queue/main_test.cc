@@ -1,8 +1,8 @@
 /*
  * @Author: five-5
- * @Description: 
+ * @Description: 测试数组队列和循环队列
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-24
+ * @LastEditTime: 2019-03-25
  */
 
 #include "array_queue.hpp"
