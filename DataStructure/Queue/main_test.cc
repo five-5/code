@@ -1,12 +1,13 @@
 /*
  * @Author: five-5
- * @Description: 测试数组队列和循环队列
+ * @Description: 测试数组队列和循环队列及链表队列
  * @Date: 2019-03-24
  * @LastEditTime: 2019-03-25
  */
 
 #include "array_queue.hpp"
 #include "loop_queue.hpp"
+#include "link_list_queue.hpp"
 
 #include <ctime>
 #include <cstdlib>
@@ -55,6 +56,17 @@ int main()
         }
     }
 
+    LinkListQueue<int> link_list_queue = LinkListQueue<int>();
+    for (int i = 0; i < 10; ++i) {
+        link_list_queue.push(i);
+        cout << link_list_queue << endl;
+
+        if (i % 3 == 2) {
+            link_list_queue.pop();
+            cout << link_list_queue << endl;
+        }
+    }
+
     int op_count = 10e4;
 
     ArrayQueue<int> queue1 = ArrayQueue<int>();
@@ -65,6 +77,9 @@ int main()
     double time2 = TestQueue(&loop_queue1, op_count);
     std::cout << "LoopQueue, time: " << time2 << " s" << std::endl;
     
-    
+    LinkListQueue<int> link_list_queue1 = LinkListQueue<int>();
+    double time3 = TestQueue(&link_list_queue1, op_count);
+    std::cout << "LinkListQueue, time: " << time3 << " s" << std::endl;
+        
     return 0;
 }
