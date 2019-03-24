@@ -24,6 +24,17 @@ class MyArray{
     // default
     MyArray():MyArray(10) {}
 
+    // assign
+    MyArray & operator=(const MyArray &rhs) {
+        size_ = rhs.size_;
+        capacity_ = rhs.capacity_;
+        data_ = new T[capacity_];
+        for (int i = 0; i < size_; ++i) {
+            data_[i] = rhs.data_[i];
+        }
+        return *this;
+    }
+    
     ~MyArray() {
         delete[] data_;
         capacity_ = 0;
@@ -79,7 +90,28 @@ class MyArray{
     }
 
     // 获取index位置的元素
-    T data(int index) {
+    T Get(int index) const{
+        if (index < 0 || index >= size_) {
+            cout << "Get failed. Index is illegal," << endl;
+            return T();
+        }
+        return data_[index];
+    }
+
+    // 获取第一个元素
+    T GetFirst() const{
+        return Get(0);
+    }
+
+    // 获取最后一个元素
+    T GetLast() const{
+        // 不直接返回data_[size_ - 1]是因为可以利用Get中关于索引的检查
+        return Get(size_ - 1);
+    }
+
+
+    // 获取index位置的元素
+    T data(int index) const{
         if (index < 0 || index >= size_) {
             cout << "Get failed. Index is illegal." << endl;
             return -1;
