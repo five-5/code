@@ -26,7 +26,7 @@ class MyArray{
 
     // assign
     MyArray & operator=(const MyArray &rhs) {
-        
+       
         Resize(rhs.capacity_);
         
         for (int i = 0; i < rhs.size_; ++i) {
