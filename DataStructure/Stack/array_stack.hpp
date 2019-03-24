@@ -2,9 +2,11 @@
  * @Author: five-5
  * @Description: 
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-24
+ * @LastEditTime: 2019-03-25
  */
 
+#ifndef ARRAY_STACK_H
+#define ARRAY_STACK_H
 #include "stack.h"
 #include "../Array/my_array.hpp"
 
@@ -67,3 +69,4 @@ class ArrayStack: public Stack<T>
  private:
     MyArray<T> array;
 };
+#endif
