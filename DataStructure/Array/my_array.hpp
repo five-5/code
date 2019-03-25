@@ -26,7 +26,11 @@ class MyArray{
 
     // assign
     MyArray & operator=(const MyArray &rhs) {
-       
+        // 自己拷贝自己
+        if (this == (&rhs)) {
+            return *this;
+        }
+
         Resize(rhs.capacity_);
         
         for (int i = 0; i < rhs.size_; ++i) {
