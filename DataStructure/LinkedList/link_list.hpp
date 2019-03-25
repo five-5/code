@@ -19,7 +19,9 @@ class LinkList {
     }
 
     LinkList  &operator= (const LinkList & rhs){
-        
+        if (this == (&rhs)) {
+            return *this;
+        }
         Node *head1 = dummyhead_;
         Node *head2 = rhs.dummyhead_;
 
