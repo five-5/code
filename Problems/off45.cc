@@ -5,14 +5,16 @@
  * @LastEditTime: 2019-03-27
  */
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <vector>
 
-
+using std::placeholders::_1;
+using std::placeholders::_2;
 
 class Solution {
 public:
-    static std::string ToStr (int ival) {
+     std::string ToStr (int ival) {
         std::string result;
         while (ival) {
             result += '0' + ival % 10;
@@ -21,7 +23,7 @@ public:
         return std::string(result.rbegin(), result.rend());
     }
     
-    static bool compare (int a, int b) {
+     bool compare (int a, int b) {
         std::string ab = ToStr(a) + ToStr(b);
         std::string ba = ToStr(b) + ToStr(a);
         if (ab <= ba) {
@@ -36,7 +38,11 @@ public:
             return result;
         }
         
-        std::sort(numbers.begin(), numbers.end(), compare);
+        // if not static member fucntion
+        std::sort(numbers.begin(), numbers.end(), std::bind(&Solution::compare, this, _1, _2));
+
+        // if static member function
+        //std::sort(numbers.begin(), numbers.end(), compare);
         
         for (auto num : numbers) {
             result += ToStr(num);
