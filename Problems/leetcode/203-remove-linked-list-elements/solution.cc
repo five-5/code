@@ -6,6 +6,8 @@
  */
 
 #include <iostream>
+#include <iterator>
+
 #include "ListNode.h"
 
 class Solution {
@@ -48,6 +50,14 @@ public:
 
 int main() 
 {
+    int arr[] = {1, 2, 6, 3, 4, 5, 6};
+    ListNode *head = new ListNode(std::begin(arr), std::end(arr));
+    std::cout << head << std::endl;
+
+    Solution solu;
+    ListNode *result = solu.removeElements(head, 6);
+    std::cout << result << std::endl;
     
+
     return 0;
 }
