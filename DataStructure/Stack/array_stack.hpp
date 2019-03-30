@@ -1,8 +1,8 @@
 /*
  * @Author: five-5
- * @Description: 
+ * @Description: The implementation of array-stack
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-25
+ * @LastEditTime: 2019-03-30
  */
 
 #ifndef ARRAY_STACK_H
@@ -25,12 +25,12 @@ class ArrayStack: public Stack<T>
     }
 
     // Override
-    int GetSize() {
+    int size() override{
         return array.size();
     }
 
     // Override
-    bool IsEmpty() {
+    bool empty() override{
         return array.IsEmpty();
     }
 
@@ -39,17 +39,17 @@ class ArrayStack: public Stack<T>
     }
 
     // Override
-    void Push(T e) {
+    void push(T e) override{
         array.AddLast(e);
     }
 
     // Override
-    T Pop() {
+    T pop() override{
         return array.RemoveLast();
     }
 
     // Override
-    T Top() {
+    T top() override{
         return array.GetLast();
     }
 

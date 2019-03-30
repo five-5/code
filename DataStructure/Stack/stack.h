@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Description: stack interface
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-25
+ * @LastEditTime: 2019-03-30
  */
 
 #ifndef STACK_H
@@ -11,10 +11,10 @@
 template <typename T>
 class Stack {
  public:
-    virtual void Push(T) = 0;
-    virtual T Pop() = 0;
-    virtual T Top() = 0;
-    virtual int GetSize() = 0;
-    virtual bool IsEmpty() = 0; 
+    virtual void push(T) = 0;
+    virtual T pop() = 0;
+    virtual T top() = 0;
+    virtual int size() = 0;
+    virtual bool empty() = 0; 
 };
 #endif

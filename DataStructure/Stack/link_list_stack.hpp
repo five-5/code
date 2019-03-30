@@ -1,8 +1,8 @@
 /*
  * @Author: five-5
- * @Description: 
+ * @Description: The implementation of link-list-stack
  * @Date: 2019-03-25
- * @LastEditTime: 2019-03-25
+ * @LastEditTime: 2019-03-30
  */
 #ifndef LINK_LIST_STACK_H
 #define LINK_LIST_STACK_H
@@ -19,27 +19,27 @@ class LinkListStack : public Stack<T> {
     }
     
     // Override
-    int GetSize() {
+    int size() {
        return list.size();
     }
 
     // Override
-    bool IsEmpty() {
+    bool empty() {
        return list.empty();
     }
 
     // Override
-    T Top() {
+    T top() {
        return list.GetFirst();
     }
 
     // Override
-    void Push(T e) {
+    void push(T e) {
        list.AddFirst(e);
     }
 
     // Override
-    T Pop(){
+    T pop(){
        return list.RemoveFirst();
     }
 

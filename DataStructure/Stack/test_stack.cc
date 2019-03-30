@@ -1,8 +1,8 @@
 /*
  * @Author: five-5
- * @Description: 
+ * @Description: test for array-stack and list-stack
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-25
+ * @LastEditTime: 2019-03-30
  */
 
 #include "array_stack.hpp"
@@ -19,11 +19,11 @@ double test_stack(Stack<int> *stack, int op_count) {
     start = clock();
     
     for (int i = 0; i < op_count; ++i) {
-        stack->Push(i);
+        stack->push(i);
     }
     
     for (int i = 0; i < op_count; ++i) {
-        stack->Pop();
+        stack->pop();
     }
 
     
