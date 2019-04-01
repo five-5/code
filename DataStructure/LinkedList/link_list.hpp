@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Description: 链表数据结构实现
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-25
+ * @LastEditTime: 2019-04-02
  */
 
 #ifndef LINK_LIST_H
@@ -14,7 +14,7 @@ class LinkList {
 
  public:
     LinkList(){
-        dummyhead_ = new Node(-1, nullptr);
+        dummyhead_ = new Node(T(), nullptr);
         size_ = 0;
     }
 
@@ -158,6 +158,26 @@ class LinkList {
        }
        return false;
    }
+
+    // 删除链表中元素值为e的第一个结点
+    void Remove(T e) {
+        if (!Contains(e)) {
+            return;
+        }
+
+       Node *pre = dummyhead_;
+       for (int i = 0; i < size_; ++i) {
+           pre = pre->next_;
+           if (pre->e_ == e) {
+               break;
+           }
+       }
+       Node *del_node = pre->next_;
+       pre->next_= del_node->next_;
+       T ret = del_node->e_;
+       delete del_node;
+       --size_;
+    }
 
     // 删除链表index位置的结点
     T Remove(int index) {
