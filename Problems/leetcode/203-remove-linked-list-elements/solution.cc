@@ -74,6 +74,40 @@ public:
         head->next = removeElementsRecursive(head->next, val);
         return (head->val == val )? head->next : head;
     }
+
+    ListNode* removeElementsRecursiveDebug(ListNode* head, int val, int depth) {
+        std::string depth_string = GenerateDepthString(depth);
+
+        std::cout << depth_string;
+        std::cout << "Call: remove " << val << " in " << head << std::endl;
+
+        if (head == nullptr) {
+            std::cout << depth_string;
+            std::cout << "Return: nullptr" << std::endl;
+            return nullptr;
+        }
+        ListNode *res = removeElementsRecursiveDebug(head->next, val, depth + 1);
+        ListNode *ret = nullptr;
+        if (head->val == val){
+            ret = res;
+        } else {
+            head->next = res;
+            ret = head;
+        }
+
+        std::cout << depth_string;
+        std::cout << "After: remove " << val << ": " << res << std::endl;
+        return ret;
+    }
+
+ private:
+    std::string GenerateDepthString(int depth) {
+        std::string ret;
+        for (int i = 0; i < depth; ++i){
+            ret += '-';
+        }
+        return ret;
+    }
 };
 
 int main() 
@@ -97,6 +131,12 @@ int main()
     head = new ListNode(std::begin(arr), std::end(arr));
     std::cout << "origin: " << head << std::endl;
     result = solu.removeElementsWithDummy(head, 6);
+    std::cout << "removed: " << result << std::endl;
+
+    std::cout << "removeElementsRecursiveDebug" << std::endl;
+    head = new ListNode(std::begin(arr), std::end(arr));
+    std::cout << "origin: " << head << std::endl;
+    result = solu.removeElementsRecursiveDebug(head, 6, 1);
     std::cout << "removed: " << result << std::endl;
 
     return 0;

@@ -54,5 +54,4 @@ class LinkListStack : public Stack<T> {
     LinkList<T> list;
 };
 
-
 #endif

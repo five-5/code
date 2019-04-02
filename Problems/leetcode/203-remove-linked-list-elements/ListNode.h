@@ -33,7 +33,7 @@ class ListNode {
 
       friend std::ostream & operator<<(std::ostream &out, const ListNode *list) {
             if (list == nullptr) {
-                  out << "nullptr" << std::endl;
+                  out << "nullptr";
                   return out;
             }
             while (list != nullptr) {
