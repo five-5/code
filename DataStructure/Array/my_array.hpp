@@ -4,10 +4,13 @@
  * @Date: 2019-03-24
  * @LastEditTime: 2019-04-17
  */
+#ifndef MY_ARRAY_H
+#define MY_ARRAY_H
 
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <vector>
 
 using std::cout;
 using std::endl;
@@ -20,6 +23,14 @@ class MyArray{
     explicit MyArray(int capacity) : capacity_(capacity){
         data_ = new T[capacity];
         size_ = 0;
+    }
+
+    MyArray(const std::vector<T>& arr) {
+        data_ = new T[arr.size()];
+        for (size_t i = 0; i < arr.size(); ++i) {
+            data_[i] = arr[i];
+        }
+        size_ = arr.size();
     }
 
     // default
@@ -236,3 +247,4 @@ class MyArray{
     int size_;
     int capacity_;
 };
+#endif
