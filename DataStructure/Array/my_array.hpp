@@ -2,11 +2,12 @@
  * @Author: five-5
  * @Description: 自定义MyArray数据结构
  * @Date: 2019-03-24
- * @LastEditTime: 2019-03-25
+ * @LastEditTime: 2019-04-17
  */
 
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 
 using std::cout;
 using std::endl;
@@ -188,6 +189,15 @@ class MyArray{
         if (index != -1) {
             Remove(index);
         }
+    }
+
+    void swap(int i, int j) {
+        if (i < 0 || i >= size_ || j < 0 || j >= size_) {
+            throw std::invalid_argument("Index is illegal.");
+        }
+        T temp = data_[i];
+        data_[i] = data_[j];
+        data_[j] = temp;
     }
 
     // 重载输出<<运算符
