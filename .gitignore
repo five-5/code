@@ -33,3 +33,5 @@
 
 # vscod
 *.ipch
+*.bin
+*.json
