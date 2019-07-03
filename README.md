@@ -18,3 +18,6 @@
 ## Technology
 技术方面学习code</br>
 目前研究生方向是在做图计算，所以之后会慢慢上传cuda的相关代码
+
+## KillStar
+消灭star行动
