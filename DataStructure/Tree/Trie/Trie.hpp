@@ -1,3 +1,9 @@
+/*
+ * @Author: five-5
+ * @Date: 2019-07-04 23:27:13
+ * @Description: define and implementation of Trie
+ * @LastEditTime: 2019-07-04 23:54:22
+ */
 
 #ifndef TRIE_HPP
 #define TRIE_HPP
@@ -8,6 +14,7 @@
 
 class Trie
 {
+ 
  private:
     class Node{
         public:
@@ -17,7 +24,7 @@ class Trie
             Node() : isWord_(false), next_(nullptr){}
             ~Node(){if(next_ != nullptr) delete next_;}
     };
-
+    
     Node *root_;
     int size_;
 
@@ -38,11 +45,14 @@ class Trie
     // 向Trie中添加一个新的单词word
     void add(const std::string &word) {
         Node *cur = root_;
-        for (int i = 0; i < word.size(); ++i) {
+        for (auto i = 0; i < word.size(); ++i) {
             char c = word.at(i);
-            try{
-                cur->next_->at(c);
-            } catch(std::out_of_range e) {
+            
+            if (cur->next_ == nullptr) {
+                cur->next_ = new std::map<char, Node*>;
+                cur->next_->emplace(c, new Node());
+            }
+            else if (cur->next_->find(c) == cur->next_->end()){
                 cur->next_->emplace(c, new Node());
             }
             cur = cur->next_->at(c);
@@ -56,11 +66,9 @@ class Trie
     // 查询单词word是否在Trie中
     bool contains(const std::string &word) {
         Node *cur = root_;
-        for (int i = 0; i < word.size(); ++i) {
+        for (auto i = 0; i < word.size(); ++i) {
             char c = word.at(i);
-            try{
-                cur->next_->at(c);
-            } catch(std::out_of_range e) {
+            if ( cur->next_->find(c) == cur->next_->end()){
                 return false;
             }
             cur = cur->next_->at(c);
