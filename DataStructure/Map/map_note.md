@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Description: map note
  * @Date: 2019-04-02
- * @LastEditTime: 2019-04-04
+ * @LastEditTime: 2019-07-10 22:36:04
  -->
  
 # 映射
@@ -20,6 +20,12 @@ Map<K,V>
 - int size()
 - bool empty()
 时间复杂度：O(h): O(lgn) ~ O(n)
+
+
+**实现底层**
+1. 链表
+2. bst
+3. avl
 
 ## 其他
 - 有序映射中的键具有顺序性 
