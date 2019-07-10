@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Description: note of set
  * @Date: 2019-04-02
- * @LastEditTime: 2019-04-02
+ * @LastEditTime: 2019-07-10 22:35:40
  -->
 
 # 集合
@@ -15,6 +15,12 @@ Set<T>
 - bool contains(T)
 - int size()
 - bool empty()
+
+**实现底层**
+1. 链表
+2. bst
+3. avl
+
 
 ## 应用
 1. 客户统计
