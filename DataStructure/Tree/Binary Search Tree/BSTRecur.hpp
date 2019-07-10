@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Description: the recursive implementation of bst
  * @Date: 2019-03-30
- * @LastEditTime: 2019-03-30
+ * @LastEditTime: 2019-07-10 21:52:41
  */
 #ifndef BSTRCUR_H
 #define BSTRCUR_H
