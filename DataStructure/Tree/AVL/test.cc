@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Date: 2019-07-10 20:48:59
  * @Description: test AVL
- * @LastEditTime: 2019-07-10 22:07:46
+ * @LastEditTime: 2019-07-12 00:31:03
  */
 
 #include <fstream>
@@ -21,7 +21,7 @@ int main()
         return -1;
     }
 
-    AVL<std::string, int> map;
+    AVL_tree::AVL<std::string, int> map;
     std::string line, word;
     printf("begin to read data from %s\n", filename.c_str());
     while (std::getline(txt_file, line))
