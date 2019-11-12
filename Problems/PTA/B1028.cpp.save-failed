@@ -1,0 +1,54 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+
+const std::string TODAY = "2014/09/06";
+const std::string MAXDAY = "1814/09/06";
+
+struct info{
+    std::string name;
+    std::string birthday;
+}tmp, age_max, age_min;
+
+void getData(const std::string &birth, int *year, int *month, int *day) {
+    std::stringstream syear(birth.substr(0,4)), smonth(birth.substr(4,2)), sday(birth.substr(6,2));
+    syear >> year;
+    smonth >> month;
+    sday >> day;
+}
+
+bool isValid(const std::string &birth) {
+    int maxYear, maxMonth, maxDay;
+    int minYear, minMonth, minDay;
+    getData(TODAY, &minYear, &minMonth, &minDay);
+    getData(MAXDAY, &maxYear, &maxMonth, &maxDay);
+
+    // check max
+    return true;
+
+}
+
+int main()
+{
+    age_max.birthday = MAXDAY;
+    age_min.birthday = TODAY;
+    int N;
+    std::cin >> N;
+    int count = 0;
+    while(N--) {
+        std::cin >> tmp.name >> tmp.birthday;
+        if (isValid(tmp.birthday)) {
+            ++count;
+            if (age_max.birthday <= tmp.birthday) {
+                age_max.name = tmp.name;
+                age_max.birthday = tmp.birthday;
+            }
+            if (age_min.birthday >= tmp.birthday) {
+                age_min.name = tmp.name;
+                age_min.birthday = tmp.birthday;
+            }
+        }
+    }
+    std::cout << count << " " << age_max.name << " " << age_min.name << std::endl;
+    return 0;
+}
